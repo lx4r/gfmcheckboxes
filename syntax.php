@@ -1,3 +1,4 @@
+<?php
 /**
  * Plugin Skeleton: Displays "Hello World!"
  *
@@ -6,19 +7,19 @@
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Christopher Smith <chris@jalakai.co.uk>
  */
- 
+
 if(!defined('DOKU_INC')) define('DOKU_INC',realpath(dirname(__FILE__).'/../../').'/');
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 require_once(DOKU_PLUGIN.'syntax.php');
- 
+
 /**
  * All DokuWiki plugins to extend the parser/rendering mechanism
  * need to inherit from this class
  */
-class syntax_plugin_test extends DokuWiki_Syntax_Plugin {
- 
- 
- 
+class syntax_plugin_gfm_checkboxes extends DokuWiki_Syntax_Plugin {
+
+   
+
    /**
     * Get the type of syntax this plugin defines.
     *
@@ -30,36 +31,7 @@ class syntax_plugin_test extends DokuWiki_Syntax_Plugin {
     function getType(){
         return 'substition';
     }
- 
-    /**
-     * What kind of syntax do we allow (optional)
-     */
-//    function getAllowedTypes() {
-//        return array();
-//    }
- 
-   /**
-    * Define how this plugin is handled regarding paragraphs.
-    *
-    * <p>
-    * This method is important for correct XHTML nesting. It returns
-    * one of the following values:
-    * </p>
-    * <dl>
-    * <dt>normal</dt><dd>The plugin can be used inside paragraphs.</dd>
-    * <dt>block</dt><dd>Open paragraphs need to be closed before
-    * plugin output.</dd>
-    * <dt>stack</dt><dd>Special case: Plugin wraps other paragraphs.</dd>
-    * </dl>
-    * @param none
-    * @return String <tt>'block'</tt>.
-    * @public
-    * @static
-    */
-//    function getPType(){
-//        return 'normal';
-//    }
- 
+
    /**
     * Where to sort in?
     *
@@ -71,8 +43,8 @@ class syntax_plugin_test extends DokuWiki_Syntax_Plugin {
     function getSort(){
         return 999;
     }
- 
- 
+
+
    /**
     * Connect lookup pattern to lexer.
     *
@@ -82,15 +54,9 @@ class syntax_plugin_test extends DokuWiki_Syntax_Plugin {
     * @see render()
     */
     function connectTo($mode) {
-      $this->Lexer->addSpecialPattern('<TEST>',$mode,'plugin_test');
-//      $this->Lexer->addEntryPattern('<TEST>',$mode,'plugin_test');
+      $this->Lexer->addSpecialPattern('[ ]',$mode,'plugin_gfm_checkboxes');
     }
- 
-//    function postConnect() {
-//      $this->Lexer->addExitPattern('</TEST>','plugin_test');
-//    }
- 
- 
+
    /**
     * Handler to prepare matched data for the rendering process.
     *
@@ -135,7 +101,7 @@ class syntax_plugin_test extends DokuWiki_Syntax_Plugin {
         }
         return array();
     }
- 
+
    /**
     * Handle the actual output creation.
     *
@@ -164,6 +130,6 @@ class syntax_plugin_test extends DokuWiki_Syntax_Plugin {
         return false;
     }
 }
- 
+
 //Setup VIM: ex: et ts=4 enc=utf-8 :
 ?>

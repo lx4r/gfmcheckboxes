@@ -1,4 +1,4 @@
-base   gfm-checkboxes
+base   gfm_checkboxes
 author lx4r
 email  hallo@l3r.de
 date   2017-03-17
