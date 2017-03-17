@@ -16,7 +16,7 @@ require_once(DOKU_PLUGIN.'syntax.php');
  * All DokuWiki plugins to extend the parser/rendering mechanism
  * need to inherit from this class
  */
-class syntax_plugin_gfm_checkboxes extends DokuWiki_Syntax_Plugin {
+class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
 
    
 
@@ -54,7 +54,7 @@ class syntax_plugin_gfm_checkboxes extends DokuWiki_Syntax_Plugin {
     * @see render()
     */
     function connectTo($mode) {
-      $this->Lexer->addSpecialPattern('[ ]',$mode,'plugin_gfm_checkboxes');
+      $this->Lexer->addSpecialPattern('[ ]',$mode,'plugin_gfmcheckboxes');
     }
 
    /**
