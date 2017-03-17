@@ -18,7 +18,10 @@ require_once(DOKU_PLUGIN.'syntax.php');
  */
 class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
 
-   
+   private $CHECKED_CHECKBOX = 0;
+   private $UNCHECKED_CHECKBOX = 1;
+   private $CHECKED_CHECKBOX_STRING = '<input type="checkbox" checked onclick="return false;">';
+   private $UNCHECKED_CHECKBOX_STRING = '<input type="checkbox" onclick="return false;">';
 
    /**
     * Get the type of syntax this plugin defines.
@@ -54,7 +57,9 @@ class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
     * @see render()
     */
     function connectTo($mode) {
-      $this->Lexer->addSpecialPattern('[ ]',$mode,'plugin_gfmcheckboxes');
+      $this->Lexer->addSpecialPattern('\[ \]',$mode,'plugin_gfmcheckboxes');
+      $this->Lexer->addSpecialPattern('\[x\]',$mode,'plugin_gfmcheckboxes');
+      $this->Lexer->addSpecialPattern('\[X\]',$mode,'plugin_gfmcheckboxes');
     }
 
    /**
@@ -97,6 +102,11 @@ class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
           case DOKU_LEXER_EXIT :
             break;
           case DOKU_LEXER_SPECIAL :
+             if (strpos($match, 'x') || strpos($match, 'X')){
+                return $this->CHECKED_CHECKBOX;
+             } else {
+                return $this->UNCHECKED_CHECKBOX;
+             }
             break;
         }
         return array();
@@ -123,8 +133,17 @@ class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
     */
     function render($mode, &$renderer, $data) {
         if($mode == 'xhtml'){
-            $renderer->doc .= "Hello World!";            // ptype = 'normal'
-//            $renderer->doc .= "<p>Hello World!</p>";     // ptype = 'block'
+            switch ($data) {
+                case $this->CHECKED_CHECKBOX:
+                    $renderer->doc .= $this->CHECKED_CHECKBOX_STRING;
+                    break;
+                case $this->UNCHECKED_CHECKBOX:
+                    $renderer->doc .= $this->UNCHECKED_CHECKBOX_STRING;
+                    break;
+                default:
+                    return false;
+                    break;
+            }
             return true;
         }
         return false;
