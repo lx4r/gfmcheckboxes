@@ -3,5 +3,5 @@ author lx4r
 email  hallo@l3r.de
 date   2017-03-17
 name   GFM Checkboxes
-desc   renders checkboxes based on GitHub Flavored Markdown's task lists (see https://help.github.com/articles/about-task-lists/)
+desc   renders checkboxes based on GitHub Flavored Markdown's task lists
 url    https://github.com/lx4r/gfm-checkboxes-for-dokuwiki
