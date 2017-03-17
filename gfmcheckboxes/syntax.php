@@ -1,21 +1,8 @@
 <?php
-/**
- * Plugin Skeleton: Displays "Hello World!"
- *
- * Syntax: <TEST> - will be replaced with "Hello World!"
- * 
- * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
- * @author     Christopher Smith <chris@jalakai.co.uk>
- */
-
 if(!defined('DOKU_INC')) define('DOKU_INC',realpath(dirname(__FILE__).'/../../').'/');
 if(!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 require_once(DOKU_PLUGIN.'syntax.php');
 
-/**
- * All DokuWiki plugins to extend the parser/rendering mechanism
- * need to inherit from this class
- */
 class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
 
    private $CHECKED_CHECKBOX = 0;
@@ -150,5 +137,4 @@ class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
     }
 }
 
-//Setup VIM: ex: et ts=4 enc=utf-8 :
 ?>
