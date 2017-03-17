@@ -9,7 +9,7 @@
 
 ## Usage
 
-I recommend using this plugin together with [markdownku](https://www.dokuwiki.org/plugin:markdowku) to be able to make use all Markdown syntax.
+I recommend using this plugin together with [markdownku](https://www.dokuwiki.org/plugin:markdowku) to be able to make use of all Markdown syntax.
 
 ### Recommended syntax for todo lists
 
