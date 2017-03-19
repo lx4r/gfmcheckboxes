@@ -5,7 +5,13 @@
  * @group plugin_gfmcheckboxes
  * @group plugins
  */
-class general_plugin_s_test extends DokuWikiTest {
+class general_plugin_gfmcheckboxes_test extends DokuWikiTest {
+
+	protected $pluginsEnabled = array('gfmcheckboxes');
+
+	public static function setUpBeforeClass(){
+        parent::setUpBeforeClass();
+    }
 
     /**
      * Simple test to make sure the plugin.info.txt is in correct format
