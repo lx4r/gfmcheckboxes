@@ -10,8 +10,7 @@
 ## Usage
 
 I recommend using this plugin together with [markdownku](https://www.dokuwiki.org/plugin:markdowku) to be able to make use of all Markdown syntax.
-
-### Recommended syntax for todo lists
+If markdownku is installed you can use this syntax for todo lists:
 
 ```plain
 - [ ] should do this
