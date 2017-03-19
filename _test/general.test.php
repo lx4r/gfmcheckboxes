@@ -51,15 +51,15 @@ class general_plugin_gfmcheckboxes_test extends DokuWikiTest {
             include($meta_file);
         }
 
-        $this->assertEquals(gettype($conf), gettype($meta),'Both ' . DOKU_PLUGIN . 's/conf/default.php and ' . DOKU_PLUGIN . 's/conf/metadata.php have to exist and contain the same keys.');
+        $this->assertEquals(gettype($conf), gettype($meta),'Both ' . DOKU_PLUGIN . 'gfmcheckboxes/conf/default.php and ' . DOKU_PLUGIN . 'gfmcheckboxes/conf/metadata.php have to exist and contain the same keys.');
 
         if (gettype($conf) != 'NULL' && gettype($meta) != 'NULL') {
             foreach($conf as $key => $value) {
-                $this->assertArrayHasKey($key, $meta, 'Key $meta[\'' . $key . '\'] missing in ' . DOKU_PLUGIN . 's/conf/metadata.php');
+                $this->assertArrayHasKey($key, $meta, 'Key $meta[\'' . $key . '\'] missing in ' . DOKU_PLUGIN . 'gfmcheckboxes/conf/metadata.php');
             }
 
             foreach($meta as $key => $value) {
-                $this->assertArrayHasKey($key, $conf, 'Key $conf[\'' . $key . '\'] missing in ' . DOKU_PLUGIN . 's/conf/default.php');
+                $this->assertArrayHasKey($key, $conf, 'Key $conf[\'' . $key . '\'] missing in ' . DOKU_PLUGIN . 'gfmcheckboxes/conf/default.php');
             }
         }
 
