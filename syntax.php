@@ -118,7 +118,7 @@ class syntax_plugin_gfmcheckboxes extends DokuWiki_Syntax_Plugin {
     * @public
     * @see handle()
     */
-    function ($format, Doku_Renderer $renderer, $data) {
+    function render($format, Doku_Renderer $renderer, $data) {
         if($mode == 'xhtml'){
             switch ($data) {
                 case $this->CHECKED_CHECKBOX:
